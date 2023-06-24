@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Product</title>
+    <link href="{{ asset('./css/index.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    {% block topmenu %}
+    {% block stylesheets %}{% endblock %}
+    <header>
+        <nav>
+            <a style="color:blue;" href="{{ path('product_index') }}">Product</a>
+            <a style="color:blue;" href="{{ path('customer_index') }}">Customer</a>
+            <a style="color:blue;" href="{{ path('order_index') }}">Order</a>
+            <a style="color:blue;" href="{{ path('supplier_index') }}">Supplier</a>
+        </nav>
+    </header>
+{% endblock %}
+</body>
+</html>

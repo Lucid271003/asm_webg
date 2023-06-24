@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+    <h1>Products list</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th style='color: blue;'>Id</th>
+            <th style='color: blue;'>Name</th>
+            <th style='color: blue;'>Price</th>
+            <th style='color: blue;'>Quantity</th>
+            <th style='color: blue;'>Supplier</th>
+            <th style='color: blue; text-align: right;'>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td><a style="color: blue;" href="{{ path('product_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
+                <td style="text-align: center;">{{ product.name }}</td>
+                <td style="text-align: center;">{{ product.price }}</td>
+                <td style="text-align: center;">{{ product.quantity }}</td>
+                <td style="text-align: center;">{{ product.supplier.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a style="color:blue; text-decoration: none;" href="{{ path('product_show', { 'id': product.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a style="color:blue; text-decoration: none;" href="{{ path('product_edit', { 'id': product.id }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a style="color:blue; text-decoration: none;" onclick="return confirm('Are you sure you want to delete?')" href="{{ path('product_delete', { 'id': product.id }) }}">delete</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<ul style='list-style: none;'>
+    <li>
+        <a style="color:blue;" href="{{ path('product_create') }}">Create a new product</a>
+    </li>
+</ul>
+{% endblock %}

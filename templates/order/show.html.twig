@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+  <h1>Order</h1>
+
+  <table>
+    <tbody>
+    <tr>
+      <th>Id</th>
+      <td>{{ order.id }}</td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td>{{ order.date|date('Y-m-d') }}</td>
+    </tr>
+    <tr>
+      <th>Customer</th>
+      {% if order.customer is not null %}
+      <td>{{ order.customer.name }}</td>
+      {% else %}
+      <td>Customer not available</td>
+      {% endif %}
+    </tr>
+    </tbody>
+  </table>
+
+  <ul style='list-style: none;'>
+    <li>
+      <a style="color:blue;" href="{{ path('order_index') }}">Back to the list</a>
+    </li>
+    
+  </ul>
+{% endblock %}

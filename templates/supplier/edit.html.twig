@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+    {{ form_start(edit_form) }}
+    <div class="form-group">
+        <label for="name">Name:</label>
+        {{ form_widget(edit_form.name,{
+            'attr':{
+                'class':'form-control',
+                'style': 'width: 10%; margin-top: 10px; margin-bottom: 5px;',
+                'placeholder': 'Name'
+            }
+        }) }}
+    </div>
+    <input type="submit" name="supplier_edit" value="Edit" class="btn btn-primary"/>
+
+    <ul style='list-style: none;'>
+        <li>
+        <a style="color:blue;" href="{{ path('supplier_index') }}">Back to the list</a>
+    </li>
+    </ul>
+    {{ form_end(edit_form) }}
+{% endblock %}

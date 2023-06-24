@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Customers list</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th style='color: blue;'>Id</th>
+            <th style='color: blue;'>Name</th>
+            <th style='color: blue;'>Address</th>
+            <th style='color: blue;'>Phone</th>
+            <th style='color: blue; text-align: right;'>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for c in customers %}
+            <tr>
+                <td><a style="color: blue;" href="{{ path('customer_show', { 'id': c.id }) }}">{{ c.id }}</a></td>
+                <td>{{ c.name }}</td>
+                <td>{{ c.address }}</td>
+                <td>{{ c.phoneNumber }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a style="color:blue; text-decoration: none;" href="{{ path('customer_show', { 'id': c.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a style="color:blue; text-decoration: none;" href="{{ path('customer_edit', { 'id': c.id }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a style="color:blue; text-decoration: none;" onclick="return confirm('Are you sure you want to delete?')" href="{{ path('customer_delete', { 'id': c.id }) }}">delete</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<ul style='list-style: none;'>
+    <li>
+        <a style='color: blue;' href="{{ path('customer_create') }}">Create a new customer</a>
+    </li>
+  </ul>
+{% endblock %}

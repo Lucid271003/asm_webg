@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+  <h1>Product</h1>
+
+  <table>
+    <tbody>
+    <tr>
+      <th>Id</th>
+      <td>{{ product.id }}</td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td>{{ product.name }}</td>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td>{{ product.price }}</td>
+    </tr>
+    <tr>
+      <th>Quantity</th>
+      <td>{{ product.quantity }}</td>
+    </tr>
+    <tr>
+      <th>Supplier</th>
+      <td>{{ product.supplier.name }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ul style='list-style: none;'>
+    <li>
+      <a style="color:blue;" href="{{ path('product_index') }}">Back to the list</a>
+    </li>
+  </ul>
+{% endblock %}

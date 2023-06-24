@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+    {{ form_start(form) }}
+    </div>
+    <div class="form-group">
+        <label for="date">Date:</label>
+        {{ form_widget(form.date,{
+            'attr':{
+                'class':'form-control',
+                'style': 'width: 10%; margin-top: 10px; margin-bottom: 5px;',
+                'placeholder': 'Date'
+            }
+        }) }}
+        <div class="form-group">
+        <label for="customer">Customer:</label>
+        {{ form_widget(form.customer,{
+            'attr':{
+                'class':'form-control',
+                'style': 'width: 10%; margin: 5px;',
+                'placeholder': 'Customer'
+            }
+        }) }}
+    </div>
+    </div>
+    <input type="submit" name="order_create" value="Create" class="btn btn-primary"/>
+
+    <ul style='list-style: none;'>
+        <li>
+        <a style="color:blue;"href="{{ path('order_index') }}">Back to the list</a>
+    </li>
+    </ul>
+    {{ form_end(form) }}
+{% endblock %}
+
+

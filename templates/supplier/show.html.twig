@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Supplier</h1>
+
+  <table>
+    <tbody>
+    <tr>
+      <th>Id</th>
+      <td>{{ supplier.id }}</td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td>{{ supplier.name }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <ul style='list-style: none;'>
+    <li>
+      <a style="color:blue;" href="{{ path('supplier_index') }}">Back to the list</a>
+    </li>
+  </ul>
+{% endblock %}  

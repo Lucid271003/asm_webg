@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+    {{ form_start(edit_form) }}
+    <div class="form-group">
+        <label for="name">Name:</label>
+        {{ form_widget(edit_form.name,{
+            'attr':{
+                'class':'form-control',
+                'style': 'width: 10%; margin-top: 10px; margin-bottom: 5px;',
+                'placeholder': 'Task name'
+            }
+        }) }}
+        <div class="invalid-feedback">
+            {{ form_errors(edit_form.name) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="price">Price:</label>
+        {{ form_widget(edit_form.price,{
+            'attr':{
+                'class':'form-control',
+                'style': 'width: 10%; margin: 5px;',
+                'placeholder': 'Price'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity:</label>
+        {{ form_widget(edit_form.quantity,{
+            'attr':{
+                'class':'form-control',
+                'style': 'width: 10%; margin: 5px;',
+                'placeholder': 'Quantity'
+            }
+        }) }}
+    </div>
+    <div class="form-group">
+        <label for="supplier">Supplier:</label>
+        {{ form_widget(edit_form.supplier,{
+            'attr':{
+                'class':'form-control',
+                'style': 'width: 10%; margin: 5px;',
+                'placeholder': 'Supplier'
+            }
+        }) }}
+    </div>
+    <input type="submit" name="product_edit" value="Edit" class="btn btn-primary"/>
+
+    <ul style='list-style: none;'>
+        <li>
+        <a style="color:blue;" href="{{ path('product_index') }}">Back to the list</a>
+    </li>
+    </ul>
+    {{ form_end(edit_form) }}
+{% endblock %}
+
+

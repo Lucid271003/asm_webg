@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppliers list</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th style='color: blue;'>Id</th>
+            <th style='color: blue;'>Name</th>
+            <th style='color: blue; text-align: right;'>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for supplier in suppliers %}
+            <tr>
+                <td><a style="color: blue;" href="{{ path('supplier_show', { 'id': supplier.id }) }}">{{ supplier.id }}</a></td>
+                <td style="text-align: center; ">{{ supplier.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a style="color:blue; text-decoration: none;" href="{{ path('supplier_show', { 'id': supplier.id }) }}">show</a>
+                        </li>   
+                        <li>
+                            <a style="color:blue; text-decoration: none;" href="{{ path('supplier_edit', { 'id': supplier.id }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a style="color:blue; text-decoration: none;" onclick="return confirm('Are you sure you want to delete?')" href="{{ path('supplier_delete', { 'id': supplier.id }) }}">delete</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<ul style='list-style: none;'>
+    <li>
+        <a style="color:blue;" href="{{ path('supplier_create') }}">Create a new supplier</a>
+    </li>
+  </ul>
+{% endblock %}
